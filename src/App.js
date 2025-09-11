@@ -6,6 +6,7 @@ const GOOGLE_CLIENT_ID =
   "812086361428-dsn0mtap6in0783a658c2oth1q6td8mq.apps.googleusercontent.com";
 
 const GOOGLE_API_KEY = "AIzaSyCOxOcX9-1LLGSxuDx2_LLRADJsH5IHAPA";
+const GOOGLE_PROJECT_NUMBER = "812086361428";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -137,6 +138,7 @@ function App() {
       .addView(window.google.picker.ViewId.DOCS)
       .setOAuthToken(gapi.client.getToken().access_token)
       .setDeveloperKey(GOOGLE_API_KEY)
+      .setAppId(GOOGLE_PROJECT_NUMBER)
       .setCallback(pickerCallback)
       .build();
 
