@@ -257,41 +257,6 @@ function App() {
 
         {error && <div className="error-message">{error}</div>}
 
-        {/* Debug Information */}
-        <div
-          className="debug-info"
-          style={{
-            marginTop: "20px",
-            padding: "15px",
-            backgroundColor: "#f5f5f5",
-            borderRadius: "8px",
-            fontSize: "14px",
-          }}
-        >
-          <h4>Debug Information:</h4>
-          <p>
-            <strong>Google APIs Loaded:</strong> {window.gapi ? "Yes" : "No"}
-          </p>
-          <p>
-            <strong>Google Identity Services:</strong>{" "}
-            {window.google ? "Yes" : "No"}
-          </p>
-          <p>
-            <strong>Token Client:</strong>{" "}
-            {tokenClient ? "Initialized" : "Not initialized"}
-          </p>
-          <p>
-            <strong>GAPI Client:</strong>{" "}
-            {gapi ? "Initialized" : "Not initialized"}
-          </p>
-          <p>
-            <strong>Is Authenticated:</strong> {isAuthenticated ? "Yes" : "No"}
-          </p>
-          <p>
-            <strong>Is Initializing:</strong> {isInitializing ? "Yes" : "No"}
-          </p>
-        </div>
-
         {selectedFile && (
           <div className="file-info">
             <h3>Selected File:</h3>
@@ -313,58 +278,6 @@ function App() {
             <pre className="content-display">{fileContent}</pre>
           </div>
         )}
-
-        <div className="instructions">
-          <h3>Setup Instructions:</h3>
-          <ol>
-            <li>
-              Go to the{" "}
-              <a
-                href="https://console.developers.google.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Google Cloud Console
-              </a>
-            </li>
-            <li>Create a new project or select an existing one</li>
-            <li>Enable the Google Drive API and Google Picker API</li>
-            <li>Create credentials (OAuth 2.0 Client ID and API Key)</li>
-            <li>Add your domain to authorized origins</li>
-            <li>
-              Replace the CLIENT_ID and API_KEY constants in App.js with your
-              credentials
-            </li>
-          </ol>
-
-          <h3>Troubleshooting:</h3>
-          <ul>
-            <li>
-              <strong>If you see "Failed to initialize Google APIs":</strong>{" "}
-              Check that your API key is correct and that Google Drive API is
-              enabled
-            </li>
-            <li>
-              <strong>If authentication fails:</strong> Make sure your Client ID
-              is correct and that <code>http://localhost:3000</code> is added to
-              authorized origins
-            </li>
-            <li>
-              <strong>If picker doesn't open:</strong> Check browser console for
-              errors and ensure Google Picker API is enabled
-            </li>
-            <li>
-              <strong>If you get "File not found" errors:</strong> The{" "}
-              <code>drive.file</code> scope is very restrictive. Try selecting
-              files that you own or have edit access to. The app will
-              automatically retry a few times.
-            </li>
-            <li>
-              <strong>Check browser console:</strong> Open Developer Tools (F12)
-              and look for error messages
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   );
